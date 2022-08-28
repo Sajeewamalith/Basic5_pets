@@ -57,11 +57,14 @@ public class CatalogActivity extends AppCompatActivity {
         // and pass the context, which is the current activity.
         mDbHelper = new PetDbHelper(this);
 
-
-        displayDatabaseInfo();
-
-
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        displayDatabaseInfo();
+    }
+
 
 
     /**
@@ -114,9 +117,6 @@ public class CatalogActivity extends AppCompatActivity {
         // The third argument is the ContentValues object containing the info for Toto.
         long newRowId = db.insert(PetEntry.TABLE_NAME, null, values);
     }
-
-
-
 
 
     @Override
